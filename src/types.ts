@@ -28,6 +28,10 @@ export interface ExpenseSummary {
     total: number;
     count: number;
   }>;
+  timeline: Array<{
+    expense_date: string;
+    total: number;
+  }>;
 }
 
 export interface AuthResponse {

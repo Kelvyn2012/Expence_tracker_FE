@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useExpenses } from '../hooks/useExpenses';
+import { SpendingCharts } from '../components/SpendingCharts';
 import { Button, Card, CardHeader, CardTitle, CardContent, Input } from '../components/ui';
 import { Link } from 'react-router-dom';
 import { PlusCircle, Download, Trash2, Edit } from 'lucide-react';
@@ -45,6 +46,9 @@ export default function Dashboard() {
            </Link>
         </div>
       </div>
+
+      {/* Charts */}
+      <SpendingCharts data={summaryQuery.data} />
 
       {/* Summary Cards */}
       <div className="grid gap-4 md:grid-cols-3">
