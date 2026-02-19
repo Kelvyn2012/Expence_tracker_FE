@@ -101,7 +101,7 @@ export default function Dashboard() {
                <div className="relative w-full overflow-auto">
                    <table className="w-full caption-bottom text-sm">
                        <thead className="[&_tr]:border-b">
-                           <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+                           <tr className="border-b border-black/10 dark:border-white/10 transition-colors hover:bg-black/5 dark:hover:bg-white/5 data-[state=selected]:bg-muted">
                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Date</th>
                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Title</th>
                                <th className="h-12 px-4 text-left align-middle font-medium text-muted-foreground">Category</th>
@@ -111,7 +111,7 @@ export default function Dashboard() {
                        </thead>
                        <tbody className="[&_tr:last-child]:border-0">
                            {expensesQuery.data?.results.map((expense) => (
-                               <tr key={expense.id} className="border-b transition-colors hover:bg-muted/50">
+                               <tr key={expense.id} className="border-b border-black/5 dark:border-white/5 transition-colors hover:bg-black/5 dark:hover:bg-white/5 data-[state=selected]:bg-muted">
                                    <td className="p-4 align-middle">
                                        {format(new Date(expense.expense_date), 'MMM dd, yyyy')}
                                    </td>

@@ -15,13 +15,13 @@ export default function Layout() {
   ];
 
   return (
-    <div className="flex min-h-screen bg-background text-foreground transition-colors duration-300">
+    <div className="flex min-h-screen transition-colors duration-300">
       {/* Sidebar */}
-      <aside className="w-64 border-r border-border bg-card hidden md:block">
+      <aside className="w-64 border-r border-white/10 glass hidden md:block">
         <div className="p-6">
-          <h1 className="text-2xl font-bold flex items-center gap-2 text-primary">
-            <Receipt className="w-8 h-8" />
-            Tracker
+          <h1 className="text-2xl font-bold flex items-center gap-2 text-primary bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <Receipt className="w-8 h-8 text-blue-400" />
+            Lumina Finance
           </h1>
         </div>
         <nav className="mt-6 px-4 space-y-2">
@@ -33,10 +33,10 @@ export default function Layout() {
                  key={item.href}
                  to={item.href}
                  className={cn(
-                   "flex items-center gap-3 px-4 py-3 rounded-lg transition-colors",
+                   "flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200",
                    isActive 
-                     ? "bg-primary text-primary-foreground" 
-                     : "hover:bg-accent hover:text-accent-foreground"
+                     ? "bg-primary/20 text-blue-400 border border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.5)]" 
+                     : "text-gray-400 hover:text-white hover:bg-white/5"
                  )}
                >
                  <Icon className="w-5 h-5" />

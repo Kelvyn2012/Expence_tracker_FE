@@ -26,7 +26,7 @@ export function useExpenses(filters: ExpenseFilters) {
       if (filters.to_date) params.append('to_date', filters.to_date);
       if (filters.category) params.append('category', filters.category);
       
-      const { data } = await api.get<{ count: number, results: Expense[] }>(`/expenses/?${params.toString()}`);
+      const { data } = await api.get<{ count: number, next?: string | null, previous?: string | null, results: Expense[] }>(`/expenses/?${params.toString()}`);
       return data;
     },
     placeholderData: (prev) => prev, 

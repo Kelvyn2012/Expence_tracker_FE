@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../lib/api';
 import { Button, Input, Label, Card, CardHeader, CardTitle, CardContent } from '../../components/ui';
+import { Receipt } from 'lucide-react';
 
 const loginSchema = z.object({
   email: z.string().email(),
@@ -34,13 +35,22 @@ export default function Login() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 px-4">
-      <Card className="w-full max-w-md backdrop-blur-sm bg-white/90 dark:bg-gray-950/90 shadow-xl border-white/20">
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl font-bold text-center">Login</CardTitle>
-          <p className="text-center text-sm text-muted-foreground">
-            Enter your email and password to access your account
-          </p>
+    <div className="flex min-h-screen items-center justify-center p-4">
+      <Card className="w-full max-w-md glass-card border-white/10">
+        <CardHeader className="space-y-4 text-center">
+          <div className="flex justify-center">
+             <div className="bg-primary/20 p-3 rounded-full ring-1 ring-primary/30">
+                <Receipt className="w-8 h-8 text-primary" />
+             </div>
+          </div>
+          <div className="space-y-1">
+            <CardTitle className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              Lumina Finance
+            </CardTitle>
+            <p className="text-sm text-muted-foreground">
+              Enter your credentials to access your dashboard
+            </p>
+          </div>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -49,7 +59,8 @@ export default function Login() {
               <Input
                 id="email"
                 type="email"
-                placeholder="m@example.com"
+                placeholder="name@example.com"
+                className="bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 focus:border-primary/50"
                 {...register('email')}
               />
               {errors.email && (
@@ -57,10 +68,16 @@ export default function Login() {
               )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <div className="flex items-center justify-between">
+                <Label htmlFor="password">Password</Label>
+                <Link to="#" className="text-xs text-primary hover:underline">
+                  Forgot password?
+                </Link>
+              </div>
               <Input
                 id="password"
                 type="password"
+                className="bg-black/5 dark:bg-white/5 border-black/10 dark:border-white/10 focus:border-primary/50"
                 {...register('password')}
               />
               {errors.password && (
@@ -69,19 +86,19 @@ export default function Login() {
             </div>
             
             {error && (
-              <div className="bg-destructive/15 text-destructive text-sm p-3 rounded-md">
+              <div className="bg-destructive/15 text-destructive text-sm p-3 rounded-md border border-destructive/20">
                 {error}
               </div>
             )}
 
-            <Button type="submit" className="w-full" isLoading={isSubmitting}>
-              Login
+            <Button type="submit" className="w-full font-semibold shadow-lg shadow-primary/20" isLoading={isSubmitting}>
+              Sign In
             </Button>
             
-            <div className="text-center text-sm">
+            <div className="text-center text-sm text-muted-foreground pt-2">
               Don't have an account?{' '}
-              <Link to="/signup" className="underline hover:text-primary">
-                Sign up
+              <Link to="/signup" className="text-primary hover:underline font-medium">
+                Create account
               </Link>
             </div>
           </form>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Button, Card, CardHeader, CardTitle, CardContent, Input, Label } from '../components/ui';
 import api from '../lib/api';
-import { Budget } from '../types';
+import type { Budget } from '../types';
 import { Plus, Trash2, Edit2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';

@@ -5,7 +5,6 @@ import * as z from 'zod';
 import { useNavigate, useParams } from 'react-router-dom';
 import api from '../lib/api';
 import { Button, Input, Label, Card, CardHeader, CardTitle, CardContent } from '../components/ui';
-import { useAuth } from '../context/AuthContext';
 import { ArrowLeft } from 'lucide-react';
 
 const expenseSchema = z.object({
@@ -25,8 +24,8 @@ export default function ExpenseForm() {
   const isEditing = !!id;
   const [loading, setLoading] = useState(false);
   
-  const { register, handleSubmit, reset, formState: { errors, points } } = useForm<ExpenseFormValues>({
-    resolver: zodResolver(expenseSchema),
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<ExpenseFormValues>({
+    resolver: zodResolver(expenseSchema) as any,
     defaultValues: {
         currency: 'USD',
         expense_date: new Date().toISOString().split('T')[0]
@@ -75,7 +74,7 @@ export default function ExpenseForm() {
           <CardTitle>{isEditing ? 'Edit Expense' : 'New Expense'}</CardTitle>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={handleSubmit(onSubmit as any)} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="title">Title</Label>
               <Input id="title" {...register('title')} placeholder="Lunch, Uber, etc." />
