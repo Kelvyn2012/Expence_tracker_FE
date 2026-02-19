@@ -9,6 +9,7 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import VerifyEmail from './pages/auth/VerifyEmail';
 import Dashboard from './pages/Dashboard';
+import Budgets from './pages/Budgets';
 import ExpenseForm from './pages/ExpenseForm';
 import Settings from './pages/Settings';
 
@@ -29,6 +30,7 @@ function App() {
             <Route element={<ProtectedRoute />}>
                <Route element={<Layout />}>
                  <Route path="/dashboard" element={<Dashboard />} />
+                 <Route path="/budgets" element={<Budgets />} />
                  <Route path="/expenses/new" element={<ExpenseForm />} />
                  <Route path="/expenses/:id" element={<ExpenseForm />} />
                  <Route path="/settings" element={<Settings />} />

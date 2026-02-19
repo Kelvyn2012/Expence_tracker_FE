@@ -9,6 +9,7 @@ export default function Layout() {
   
   const navItems = [
     { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { href: '/budgets', label: 'Budgets', icon: Receipt },
     { href: '/expenses/new', label: 'New Expense', icon: PlusCircle },
     { href: '/settings', label: 'Settings', icon: Settings },
   ];

@@ -27,12 +27,22 @@ export interface ExpenseSummary {
     category: string;
     total: number;
     count: number;
+    budget?: number;
   }>;
   timeline: Array<{
     expense_date: string;
     total: number;
   }>;
 }
+
+export interface Budget {
+  id: string;
+  category: string;
+  amount: string;
+  currency: string;
+  created_at: string;
+}
+
 
 export interface AuthResponse {
   access: string;
